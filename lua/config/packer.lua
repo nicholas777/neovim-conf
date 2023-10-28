@@ -32,4 +32,9 @@ return require('packer').startup(function(use)
         run = 'npm install',
     }
 
+    use {"chrisgrieser/nvim-genghis", requires = "stevearc/dressing.nvim"}
+
+    use 'mfussenegger/nvim-dap'
+
 end)
+
