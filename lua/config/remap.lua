@@ -8,4 +8,4 @@ function MyVimgrep(input)
   vim.cmd('copen')
 end
 
-vim.api.nvim_set_keymap('n', '<Leader>gr', [[:lua MyVimgrep('')<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>gr', [[:lua MyVimgrep('')<CR>]], { noremap = true, silent = true })
