@@ -27,21 +27,12 @@ return require('packer').startup(function(use)
         }
     }
 
-    use {
-        'prettier/vim-prettier',
-        run = 'npm install',
-    }
-
-    use {"chrisgrieser/nvim-genghis", requires = "stevearc/dressing.nvim"}
-
     use "nvim-lua/plenary.nvim"
     use {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
         requires = { {"nvim-lua/plenary.nvim"} }
     }
-
-    use 'sakhnik/nvim-gdb'
 
 end)
 
