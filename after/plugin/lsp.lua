@@ -16,6 +16,12 @@ end)
 
 lsp.setup()
 
+lsp.ensure_installed({
+    'clangd',
+    'zls',
+    'lua_ls',
+})
+
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
@@ -26,4 +32,6 @@ cmp.setup({
         ['<C-Space>'] = cmp.mapping.confirm({select = true}),
     }
 })
+
+local lspconfig = require('lspconfig');
 
