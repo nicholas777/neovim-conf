@@ -3,6 +3,7 @@ require("config.packer")
 
 vim.o.background = "dark" 
 vim.cmd([[colorscheme gruvbox]])
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" });
 
 vim.opt.guicursor = ""
 
@@ -35,3 +36,7 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
+
+vim.g.codeium_disable_bindings = 1
+
+

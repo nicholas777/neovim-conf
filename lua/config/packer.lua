@@ -11,7 +11,20 @@ return require('packer').startup(function(use)
 
     use { "ellisonleao/gruvbox.nvim" }
 
-    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    use {
+        'nvim-treesitter/nvim-treesitter', 
+        { run = ':TSUpdate' },
+        config = function()
+            require('nvim-treesitter.configs').setup {
+                ensure_installed = "maintained",
+                sync_install = false,
+                highlight = {
+                    enable = true,
+                    additional_vim_regex_highlighting = false,
+                },
+            }
+        end,
+    }
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -27,11 +40,31 @@ return require('packer').startup(function(use)
         }
     }
 
-    use "nvim-lua/plenary.nvim"
     use {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
         requires = { {"nvim-lua/plenary.nvim"} }
+    }
+
+    use {
+        "ExaFunction/codeium.vim",
+        config = function()
+            vim.keymap.set("i", "<C-g>", function() return vim.fn["codeium#Accept"]() end, {expr = true, silent = true})
+        end
+    }
+
+    use {
+        "mfussenegger/nvim-dap",
+    }
+
+    use {
+        "rcarriga/nvim-dap-ui",
+        requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" }
+    }
+
+    use {
+        "theHamsta/nvim-dap-virtual-text",
+        requires = { "mfussenegger/nvim-dap" }
     }
 
 end)
